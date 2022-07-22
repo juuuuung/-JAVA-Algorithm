@@ -21,23 +21,28 @@ public class Binary_Search {
         int count =0;
         int LastMaxIndex = arr.length;
         int LastMinIndex = arr.length/2;
-        int KnowIndex = 50;
+        int KnowIndex = arr.length/2;
 
-        while(KnowIndex != num){
-            if(KnowIndex < num){
-                LastMinIndex = KnowIndex;
-                count++;
-                KnowIndex = LastMaxIndex - ((LastMaxIndex - LastMinIndex) / 2);
-            } else {
-                if(KnowIndex == 50){
+        while(arr[KnowIndex] != num){ //50 != 76
+            if(arr[KnowIndex] < num){ //50 < 76
+                LastMinIndex = KnowIndex; //50 = 50, 
+                count++; //1
+                KnowIndex = LastMaxIndex - ((LastMaxIndex - LastMinIndex) / 2)-1; //100 - ((100-50)/2)
+                System.out.println("->"+count+" "+arr[KnowIndex]);
+            } else if(arr[KnowIndex] > num){
+                if(count == 20) break;
+                if(KnowIndex == arr.length/2){
                     LastMinIndex = 0;
                 }
                 LastMaxIndex = KnowIndex; 
                 KnowIndex = LastMaxIndex - ((LastMaxIndex - LastMinIndex) / 2);
                 count++;
+                System.out.println("<-"+count+" "+arr[KnowIndex]);
+            } else{
+                break;
             }
         }
-        System.out.printf("%d번탐색 %d 인덱스", count, KnowIndex);
+        System.out.printf("%d번탐색 %d 인덱스", count, KnowIndex+1);
     }
    
 }
