@@ -1,24 +1,26 @@
 package baekjoon.problem;
 
-import java.io.*;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Problem_1546 {
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        double result = 0;
-        int N = Integer.parseInt(br.readLine());
-        int[] arr = new int[N];
-        for(int i =0; i < N; i++)
-            arr[i] = Integer.parseInt(br.readLine())*100;
-        br.close();
-        Arrays.sort(arr);
-        int max = arr[arr.length-1]/100;
+    public static void main(String[] args){
+        Scanner s = new Scanner(System.in);
+        int N = s.nextInt();
+        float max = 0;
+        float result = 0;
+        float[] arr = new float[N];
+
+        for(int i = 0; i < N; i++){
+            arr[i] = s.nextInt();
+            if(arr[i] > max) max = arr[i];
+        }
+        s.close();
+
         for(int i =0; i < N; i++){
-            result += arr[i]/max;
+            result += (arr[i]/max*100)/N;
         }
 
-        System.out.println(result/N);
-        
+        System.out.println(result);
     }
 }
