@@ -1,7 +1,6 @@
 package baekjoon.problem;
 
-import java.util.Scanner;
-
+import java.io.*;
 
 // 세 개의 자연수 A, B, C가 주어질 때 A × B × C를
 //  계산한 결과에 0부터 9까지 각각의 숫자가 몇 번씩 쓰였는지를 
@@ -13,24 +12,17 @@ import java.util.Scanner;
 
 public class Problem_2577 {
 
-	public static void main(String[] args) {
-		Scanner s = new Scanner(System.in);
-		int Result = s.nextInt() * s.nextInt() * s.nextInt();
-
-		s.close();
-
-		int[] Count_Int = new int[10];
-
-		while(Result != 0){
-			Count_Int[Result % 10] +=1;
-			Result /= 10;
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int multiply;
+		int[] cnt = new int[10];
+		multiply = Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine());
+		br.close();
+		while(multiply != 0){
+			cnt[multiply%10] += 1;
+			multiply /=10;
 		}
-
-		// for(int i = 0; i <= Integer.toString(Result).length(); i++){
-		// 	Count_Int[Result%10] += 1;
-		// 	Result /= 10;
-		// }
-
-		for(int count : Count_Int) System.out.println(count);
+		for(int s: cnt)
+			System.out.println(s);
 	}
 }
