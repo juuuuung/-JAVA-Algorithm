@@ -1,6 +1,5 @@
-package baekjoon.problem;
+package baekjoon.problem.arrays;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Problem_1546 {

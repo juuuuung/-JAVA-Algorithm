@@ -1,4 +1,4 @@
-package baekjoon.problem;
+package baekjoon.problem.arrays;
 
 import java.io.*;
 import java.util.StringTokenizer;
