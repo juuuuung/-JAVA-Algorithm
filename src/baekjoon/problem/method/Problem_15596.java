@@ -1,4 +1,4 @@
-package baekjoon.problem;
+package baekjoon.problem.method;
 
 public class Problem_15596 {
     public static long sum(int[] a){

@@ -1,4 +1,4 @@
-package baekjoon.problem;
+package baekjoon.problem.method;
 
 public class Problem_4673 {
     public static void main(String[] args) {
