@@ -6,34 +6,34 @@ import java.util.StringTokenizer;
 public class Problem_4344 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-		int[] arr;
-		StringTokenizer token;
-        
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int C = Integer.parseInt(br.readLine());
-        
+
 		for (int i = 0; i < C; i++) {
-			token = new StringTokenizer(br.readLine(), " ");
+			// 숫자를 공백으로 나눠줌 - > 5 50 40 30 90 100
+			StringTokenizer token = new StringTokenizer(br.readLine(), " ");
 
-            
-			int N = Integer.parseInt(token.nextToken());
-			arr = new int[N];
-            
-			int result = 0;
-			for (int j = 0; j < N; j++) {
-                arr[j] = Integer.parseInt(token.nextToken());
-				result += arr[j];
+			// 나눌 숫자
+			int person = Integer.parseInt(token.nextToken());
+			// 5
+			int[] arr = new int[person];
+
+			int mean = 0;
+			for (int j = 0; j < person; j++) {
+				arr[j] = Integer.parseInt(token.nextToken());
+				mean += arr[j];
 			}
+			mean /= person;
 
-			result /= N;
-            Float count = 0.0f;
-            
-			for (int j = 0; j < arr.length; j++)if (arr[j] > result)count++;
-			bw.write(String.format("%.3f", (count/N)*100)+"%\n");
+			float count = 0.0f;
+			for (int j = 0; j < person; j++) {
+				if (arr[j] > mean) {
+					count++;
+				}
+			}
+			bw.write(String.format("%.3f", (count / person) * 100) + "%\n");
 		}
-        bw.flush();
-        bw.close();
-        br.close();
+		bw.flush();
+		bw.close();
 	}
 }
